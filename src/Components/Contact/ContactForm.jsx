@@ -1,30 +1,30 @@
 "use client";
 import React, { useRef,useState } from "react";
-import { sendEmail } from "@/Utils/emailservice";
+// import { sendEmail } from "@/Utils/emailservice";
 
 function ContactForm() {
   const form = useRef();
-  const [emailStatus,setEmailStatus] = useState();
+  // const [emailStatus,setEmailStatus] = useState();
 
-  const handleSubmit = async (e)=>{
-    e.preventDefault();
-    const formData = new FormData(form.current);
-    const formParams = Object.fromEntries(formData.entries());
-    const response = await sendEmail(formParams);
-    if (response === 200) {
-      setEmailStatus("El correo electrónico se envió correctamente.");
-    } else {
-      setEmailStatus("Hubo un problema al enviar el correo electrónico.");
-    }
-    form.current.reset();
-  }
+  // const handleSubmit = async (e)=>{
+  //   e.preventDefault();
+  //   const formData = new FormData(form.current);
+  //   const formParams = Object.fromEntries(formData.entries());
+  //   const response = await sendEmail(formParams);
+  //   if (response === 200) {
+  //     setEmailStatus("El correo electrónico se envió correctamente.");
+  //   } else {
+  //     setEmailStatus("Hubo un problema al enviar el correo electrónico.");
+  //   }
+  //   form.current.reset();
+  // }
  
 
   return (
     <section class="bg-custom-contact pb-10 md:col-span-7 lg:col-span-8">
       <form
         ref={form}
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         class="flex flex-col items-center max-w-4xl m-auto lg:py-3 lg:border-2 lg:border-golden "
       >
         <hgroup class="flex flex-col w-full max-w-3xl md:flex-row">

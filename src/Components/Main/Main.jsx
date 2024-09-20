@@ -8,7 +8,7 @@ import whatsapp from "@/assets/whatsapp.svg"
 import '../../styles/globals.css'
 import TabButton from "./TabButton";
 import Cantidad from "../Cantidad/Cantidad";
-import Local from "../Local/local";
+// import Local from "../Local/local";
 
 
 const TAB_DATA = [

@@ -3,112 +3,112 @@ import { createProject } from "@/Utils/project-crud";
 import React, { useState } from "react";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import FormImages from "./formImages";
-import SignOut from "../Auth/SignOut";
+// import SignOut from "../Auth/SignOut";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
 
 const CreateProjectForm = () => {
-  const { data: session } = useSession();
-  if(!session){
-    redirect("/proyectos")
-  }
-  const [images, setImages] = useState([]);
-  const [imageFile, setImageFile] = useState({});
-  const [loader, setLoader] = useState(false);
-  const [projectCreated, setProjectCreated] = useState(false);
-  const [projectNotCreated, setProjectNotCreated] = useState(false);
-  const [formData, setFormData] = useState({
-    place: "",
-    title: "",
-    area: "",
-    bathrooms: "",
-    description: "",
-    garage: "",
-    images: [],
-    rooms: "",
-    type: "",
-    year: ""
-  });
+  // const { data: session } = useSession();
+  // if(!session){
+  //   redirect("/proyectos")
+  // }
+  // const [images, setImages] = useState([]);
+  // const [imageFile, setImageFile] = useState({});
+  // const [loader, setLoader] = useState(false);
+  // const [projectCreated, setProjectCreated] = useState(false);
+  // const [projectNotCreated, setProjectNotCreated] = useState(false);
+  // const [formData, setFormData] = useState({
+  //   place: "",
+  //   title: "",
+  //   area: "",
+  //   bathrooms: "",
+  //   description: "",
+  //   garage: "",
+  //   images: [],
+  //   rooms: "",
+  //   type: "",
+  //   year: ""
+  // });
 
-  const formDataInitialValue = {
-    place: "",
-    title: "",
-    area: "",
-    bathrooms: "",
-    description: "",
-    garage: "",
-    images: [],
-    rooms: "",
-    type: "",
-    year: ""
-  };
-  // Manejador de cambios para los campos del formulario
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  // const formDataInitialValue = {
+  //   place: "",
+  //   title: "",
+  //   area: "",
+  //   bathrooms: "",
+  //   description: "",
+  //   garage: "",
+  //   images: [],
+  //   rooms: "",
+  //   type: "",
+  //   year: ""
+  // };
+  // // Manejador de cambios para los campos del formulario
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value
+  //   });
+  // };
 
-  // Manejador del envío del formulario
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const mainImage = [];
-    try {
-      setProjectCreated(false);
-      setProjectNotCreated(false);
-      setLoader(true);
+  // // Manejador del envío del formulario
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const mainImage = [];
+  //   try {
+  //     setProjectCreated(false);
+  //     setProjectNotCreated(false);
+  //     setLoader(true);
 
-      const updatedFormData = { ...formData, images: [] };
-      if (imageFile[0]) {
-        imageFile[0].main = true;
-        mainImage.push(imageFile[0]);
-      }
+  //     const updatedFormData = { ...formData, images: [] };
+  //     if (imageFile[0]) {
+  //       imageFile[0].main = true;
+  //       mainImage.push(imageFile[0]);
+  //     }
 
-      const otherImages = images.filter((image) => image.secure_url);
+  //     const otherImages = images.filter((image) => image.secure_url);
 
-      if (mainImage.length > 0) {
-        updatedFormData.images.push(...mainImage);
-      }
+  //     if (mainImage.length > 0) {
+  //       updatedFormData.images.push(...mainImage);
+  //     }
 
-      if (otherImages.length > 0) {
-        updatedFormData.images.push(...otherImages);
-      }
+  //     if (otherImages.length > 0) {
+  //       updatedFormData.images.push(...otherImages);
+  //     }
 
-      const response = await createProject(updatedFormData);
+  //     const response = await createProject(updatedFormData);
 
-      if (response) {
-        setProjectCreated(true);
-        setLoader(false);
-        setFormData(formDataInitialValue);
-        setImageFile({});
-        setImages([]);
-      } else {
-        setLoader(false);
-        setProjectNotCreated(true);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  }
+  //     if (response) {
+  //       setProjectCreated(true);
+  //       setLoader(false);
+  //       setFormData(formDataInitialValue);
+  //       setImageFile({});
+  //       setImages([]);
+  //     } else {
+  //       setLoader(false);
+  //       setProjectNotCreated(true);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //   }
+  // }
 
   return (
     <>
-      <SignOut/>
+      {/* <SignOut/> */}
       <h1 className="mt-4 mb-6 pl-1 text-2xl text-custom-green sm:pl-24 lg:text-3xl">
         Crea el Proyecto
       </h1>
       <form
         className=" w-full flex flex-col justify-around m-auto border-4 h-fit p-2 border-custom-green sm:w-3/4 lg:w-1/2 lg:mb-6"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
       >
         <input
           type="text"
           name="title"
           value={formData.title}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Título del Proyecto"
           className=" border rounded  focus:outline-custom-green py-1 pl-1 h-12"
           required
@@ -117,7 +117,7 @@ const CreateProjectForm = () => {
           type="text"
           name="place"
           value={formData.place}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Lugar: Pvcia, Ciudad"
           className="border rounded  focus:outline-custom-green py-1 pl-1 h-10 mt-1"
           required
@@ -126,7 +126,7 @@ const CreateProjectForm = () => {
           type="number"
           name="area"
           value={formData.area}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Tamaño en mts cuadrados"
           className="border rounded  focus:outline-custom-green py-1 pl-1 h-10 mt-1"
           required
@@ -141,7 +141,7 @@ const CreateProjectForm = () => {
           type="number"
           name="rooms"
           value={formData.rooms}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Cant. Habitaciones"
           className="border rounded  focus:outline-custom-green py-1 pl-1 h-10 mt-1"
           required
@@ -150,7 +150,7 @@ const CreateProjectForm = () => {
           type="number"
           name="year"
           value={formData.year}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Año de Construcción"
           className="border rounded  focus:outline-custom-green py-1 pl-1 h-10 mt-1"
           required
@@ -159,7 +159,7 @@ const CreateProjectForm = () => {
           type="text"
           name="description"
           value={formData.description}
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Describe la Propiedad"
           className="mt-2 p-2 border rounded-md w-full min-h-[150px] resize-none 
         focus:outline-custom-green"

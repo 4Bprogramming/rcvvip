@@ -17,7 +17,7 @@ const AnimatedNumbers = dynamic(
     {
       prefix: "+",
       metric: "Años",
-      value: "10",
+      value: "2",
     },
     {
         prefix: "+",

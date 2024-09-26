@@ -71,7 +71,7 @@ function Main() {
               2020
             </h1>
             <p className="text-white md:text-4xl md:pt-custom lg:text-4xl ">
-              Tu Seguridad Primero
+              Asumimos tus Riesgos y Aseguramos tu Tranquilidad.
             </p>
           </article>
         </section>

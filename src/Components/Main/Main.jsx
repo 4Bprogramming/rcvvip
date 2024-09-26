@@ -85,7 +85,7 @@ function Main() {
           <h2 className=" text-5xl tituli" >Nosotros</h2>
         </section>
         <a href="https://api.whatsapp.com/send?phone=58">
-      <Image src={whatsapp} className="btnFlotante" />
+      <Image src={whatsapp} className="btnFlotante" alt="whatsapp"/>
       </a>
       
         <section>

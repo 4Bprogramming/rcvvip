@@ -2,7 +2,7 @@
 import React, {  useTransition, useState } from "react";
 import Image from "next/image";
 import mainBanner from "../../../public/resources/mainImage.jpg";
-import nuestroEstudio from "../../../public/resources/nuestro.jpg";
+import nuestroEstudio from "../../../public/resources/logot.png";
 import SendEmail from "../Services/SendEmail";
 import whatsapp from "@/assets/whatsapp.svg"
 import '../../styles/globals.css'
